@@ -136,7 +136,7 @@ pipeline {
 								      checkout scm
     								 sh """
     								 	echo "Analisis de codigo con Sonar"
-									/tmp/sonar-scanner-3.0.2.768/bin/sonar-scanner -D"sonar.version=${MIN_VERSION}"
+									/tmp/sonar-scanner-3.0.2.768/bin/sonar-scanner -D"sonar.version=${env.MIN_VERSION}"
     								    """	
     								}
     						      		
