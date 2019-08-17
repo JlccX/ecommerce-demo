@@ -102,9 +102,9 @@ pipeline {
 	    							  checkout scm
 								  //MIN_VERSION=sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
 	    							  sh """
-								  	git --version
-	    							  	npm --version
-	    								npm install
+								  	#git --version
+	    							  	#npm --version
+	    								#npm install
 	    								"""
     							     }
 								}
