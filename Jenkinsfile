@@ -153,21 +153,14 @@ pipeline {
     		steps {
     			script {
     				node {
-    					//docker.withRegistry('https://registry.hub.docker.com/',"DockerHubCredential2") {
-    						//docker.image('98640321id/nodejs:pipeline').inside("-u root:root") {
-    						      timestamps  {
-    							  unstash "${folderTrabajo}"
-    								dir("${folderTrabajo}") {
-    								 sh """
-    									 docker login
-    									 docker build -t ecommerce:first .
-    									 docker tag  ecommerce:first 98640321id/ecommerce:first
-    									 docker push 98640321id/ecommerce:first
-    								    """	
-    								}
-    						      }
-    						//}
-    					//}
+					
+					docker.withRegistry("https://registry.hub.docker.com/","DockerHubCredentials") {
+
+							def repository = "98640321id/contenedor-docker-curso-devops"
+							customContainer = docker.build("${repository}")
+							customContainer.push("devops")
+
+						}
 
     				}
     			}
