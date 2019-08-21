@@ -155,11 +155,11 @@ pipeline {
     				node {
 					
 					docker.withRegistry("https://registry.hub.docker.com/","DockerHubCredentials") {
-
+							unstash "${folderTrabajo}"
+							sh "ls"
 							def repository = "98640321id/contenedor-docker-curso-devops"
 							customContainer = docker.build("${repository}")
 							customContainer.push("devops")
-
 						}
 
     				}
