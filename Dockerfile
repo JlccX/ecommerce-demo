@@ -15,5 +15,7 @@ RUN apk add --update --no-cache \
     tar \
     bash && \
     rm -rf /var/cache/apk/*
+    
+ADD ecommerce-demo/ /tmp/
 
 CMD /bin/sh
